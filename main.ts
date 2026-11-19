@@ -1,3 +1,4 @@
+import { join } from 'node:path';
 /**
  * make.fun news-image contest entrypoint.
  *
@@ -19,7 +20,6 @@
  */
 
 import { copyFileSync } from 'node:fs';
-import { join } from 'node:path';
 
 const source = new URL('./entry.png', import.meta.url);
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
