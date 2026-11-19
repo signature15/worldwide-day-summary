@@ -1,26 +1,43 @@
+[![make.fun · news-image-20261118](https://make.fun/badge/news-image-20261118.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
+[![rank](https://make.fun/badge/news-image-20261118/signature15/worldwide-day-summary/rank.svg)](https://make.fun/bounty/news-image-20261118/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
+[![reward](https://make.fun/badge/news-image-20261118/signature15/worldwide-day-summary/reward.svg)](https://make.fun/bounty/news-image-20261118?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261118)
+
 # worldwide-day-summary
 
-An entry for make.fun's [news image contest](https://make.fun/bounty/news-image-20261117) — the world's
-news of Tuesday 17 November 2026 summed up in one image, rendered as a
-front-page style poster with a world map band and regional headline columns.
-
-[![make.fun · news-image-20261117](https://make.fun/badge/news-image-20261117.svg)](https://make.fun/bounty/news-image-20261117?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
-[![rank](https://make.fun/badge/news-image-20261117/signature15/worldwide-day-summary/rank.svg)](https://make.fun/bounty/news-image-20261117/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
-[![reward](https://make.fun/badge/news-image-20261117/signature15/worldwide-day-summary/reward.svg)](https://make.fun/bounty/news-image-20261117?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261117)
+Entry for the make.fun [news image contest (news-image-20261118)](https://make.fun/bounty/news-image-20261118).
 
 ## What it does
 
-`main.ts` copies the repository's `entry.png` to `/output/entry.png`:
-standard library only, no network, and both grading runs write identical
-bytes.
+This project copies a rendered news-day poster image deterministically. The entrypoint (`main.ts`) takes the repository's `entry.png` and writes an identical copy to the contest output directory, producing the same bytes on every run.
 
-## Layout of the image
+## The image
 
-- masthead and the day's date
-- a stylized six-continent map band
-- three columns of headline cards grouped by region and topic
-- 30 stories chosen for breadth across regions and fields
+A front-page layout of the world's news for Tuesday 17 November 2026, including:
+
+- A masthead with the day's date
+- A six-continent map band
+- Story cards organized by region
+
+## How to run
+
+Requires Node 22. Uses only the Node standard library (no network access).
+
+```bash
+node main.ts
+```
+
+By default the image is written to `/output/entry.png`. To run locally, set `MAKEFUN_OUTPUT_DIR` to choose the output directory:
+
+```bash
+MAKEFUN_OUTPUT_DIR=./out node main.ts
+```
+
+Ensure the output directory exists before running.
+
+## Determinism
+
+The program performs a byte-for-byte copy of `entry.png`. Given the same source image and output path, two runs produce identical output with no dependence on time, randomness, or external services.
 
 ## License
 
-MIT
+MIT — see the [LICENSE](LICENSE) file in this repository.
