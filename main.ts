@@ -1,10 +1,10 @@
 /**
  * make.fun news-image contest entrypoint.
  *
- * Copies the repository's rendered poster (entry.png, v14 broadsheet,
- * Wednesday 18 November 2026) to the contest output directory so the grader
- * can collect it. The program performs a single local file copy — no rendering,
- * no network access, and no randomness.
+ * Ships the entry for the worldwide-day-summary digest: a one-page world-news
+ * digest covering Wednesday 18 November 2026, delivered as the committed
+ * entry.png (v14 broadsheet). The program copies those bytes to the contest
+ * output directory for the grader — no rendering, no network, no randomness.
  *
  * Determinism: the source bytes are copied verbatim and the destination is
  * derived only from MAKEFUN_OUTPUT_DIR (default: /output), so two runs
